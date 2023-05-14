@@ -29,7 +29,7 @@ public class PetService {
         pets.add(pet);
         customer.setPets(pets);
         customerRepository.save(customer);
-
+        System.out.println(customer);
         return pet;
     }
 
