@@ -21,6 +21,7 @@ public class EmployeeService {
 
     public Employee saveEmployee(Employee employee) {
         Employee newEmployee = employeeRepository.save(employee);
+        System.out.println(newEmployee);
         return newEmployee;
     }
 

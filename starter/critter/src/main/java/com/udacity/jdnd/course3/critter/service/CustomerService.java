@@ -25,6 +25,7 @@ public class CustomerService {
         if (petIds != null && !petIds.isEmpty()) {
             customerPets = petIds.stream().map((petId) -> petRepository.getOne(petId)).collect(Collectors.toList());
         }
+        System.out.println(customerPets);
         customer.setPets(customerPets);
         return customerRepository.save(customer);
     }
