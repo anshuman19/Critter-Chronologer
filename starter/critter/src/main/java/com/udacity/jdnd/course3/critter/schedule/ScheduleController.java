@@ -44,6 +44,7 @@ public class ScheduleController {
     @GetMapping
     public List<ScheduleDTO> getAllSchedules() {
         List<Schedule> schedules = scheduleService.getAllSchedules();
+        System.out.println(schedules);
         return schedules.stream().map(this::convertScheduleToScheduleDTO).collect(Collectors.toList());
     }
 

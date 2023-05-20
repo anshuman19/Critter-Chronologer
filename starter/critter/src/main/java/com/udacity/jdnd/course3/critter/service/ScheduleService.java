@@ -35,7 +35,7 @@ public class ScheduleService {
 
         schedule.setPets(pets);
         schedule.setEmployee(employees);
-
+        System.out.println(employees);
         return scheduleRepository.save(schedule);
     }
 
