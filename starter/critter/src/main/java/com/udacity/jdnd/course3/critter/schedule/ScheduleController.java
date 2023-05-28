@@ -35,6 +35,7 @@ public class ScheduleController {
         ScheduleDTO convertedSchedule;
         try {
             convertedSchedule = convertScheduleToScheduleDTO(scheduleService.saveSchedule(schedule, scheduleDTO.getEmployeeIds(), scheduleDTO.getPetIds()));
+            System.out.println(convertedSchedule);
         } catch (Exception exception) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Schedule could not be saved", exception);
         }
@@ -53,6 +54,7 @@ public class ScheduleController {
         List<Schedule> schedules;
         try {
             schedules = scheduleService.getPetSchedule(petId);
+            System.out.println(schedules);
         } catch (Exception exception) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Pet schedule with id: " + petId + " not found", exception);
         }
@@ -73,6 +75,7 @@ public class ScheduleController {
     @GetMapping("/customer/{customerId}")
     public List<ScheduleDTO> getScheduleForCustomer(@PathVariable long customerId) {
         List<Schedule> schedules;
+        System.out.println(customerId);
         try {
             schedules = scheduleService.getCustomerSchedule(customerId);
         } catch (Exception exception) {

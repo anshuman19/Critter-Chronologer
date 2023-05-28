@@ -31,12 +31,14 @@ public class CustomerService {
     }
 
     public Customer getCustomerByPetId(Long petId) {
+        System.out.println(petId);
         Customer customer = petRepository.getOne(petId).getCustomer();
         return customer;
     }
 
     public List<Customer> getAllCustomers() {
         List<Customer> customers = customerRepository.findAll();
+        System.out.println(customers);
         return customers;
     }
 }

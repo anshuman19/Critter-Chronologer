@@ -58,6 +58,7 @@ public class ScheduleService {
 
     public List<Schedule> getCustomerSchedule(Long customerId) {
         Customer customer = customerRepository.getOne(customerId);
+        System.out.println(customer);
         List<Schedule> schedules = scheduleRepository.findByPetsIn(customer.getPets());
         return schedules;
     }

@@ -21,9 +21,10 @@ public class PetService {
     PetRepository petRepository;
     
     public Pet savePet(Pet pet, Long customerId) {
+        System.out.println(customerId);
         Customer customer = customerRepository.getOne(customerId);
         List<Pet> pets = new ArrayList<>();
-
+        System.out.println(pets);
         pet.setCustomer(customer);
         pet = petRepository.save(pet);
         pets.add(pet);
@@ -44,6 +45,7 @@ public class PetService {
     }
 
     public Pet getPetById(Long petId) {
+        System.out.println(petId);
         Pet pet = petRepository.getOne(petId);
         return pet;
     }

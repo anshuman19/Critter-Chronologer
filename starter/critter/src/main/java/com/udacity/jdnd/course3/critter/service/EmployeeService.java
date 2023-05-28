@@ -26,10 +26,12 @@ public class EmployeeService {
     }
 
     public List<Employee> getEmployeesByService(LocalDate date, Set<EmployeeSkill> skills){
+        System.out.println(skills);
         List<Employee> employees = employeeRepository
                 .findByDaysAvailable(date.getDayOfWeek()).stream()
                 .filter(employee -> employee.getSkills().containsAll(skills))
                 .collect(Collectors.toList());
+        System.out.println(employees);
         return employees;
     }
 
@@ -39,6 +41,7 @@ public class EmployeeService {
     }
 
     public void setEmployeeAvailability(Set<DayOfWeek> days, Long employeeId) {
+        System.out.println(days);
         Employee employee = employeeRepository.getOne(employeeId);
         employee.setDaysAvailable(days);
         employeeRepository.save(employee);
